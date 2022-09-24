@@ -1,0 +1,100 @@
+#section1{
+    /* max-width: 1560px; */
+    width: 100vw;
+    height: auto;
+}
+
+.nav{
+    background-color: rgb(237 145 99) !important;
+}
+
+.container{
+    margin: auto 10px !important;
+    max-width: 1560px !important;
+
+}
+
+.container1{
+    margin: auto 10px !important;
+    max-width: 1560px !important;
+    position: relative;
+    top: -20px;
+}
+
+.sidebar{
+    position: relative;
+}
+
+@media (min-width: 1560px) {
+    .container{
+        margin: auto auto !important;
+    }
+
+    .container1{
+        margin: auto auto !important;
+
+    }
+}
+
+.subnav{
+    display: flex;
+    /* border: 2px solid black; */
+    height: 50px;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(230,210,200) !important;
+
+}
+
+.divsubnav{
+    display: flex;
+    /* border: 2px solid black; */
+    height: 100%;
+    width: 100%;
+    max-width: 1560px;
+    /* padding: 0px 50px; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divsubnav div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: auto;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100vw) !important;
+    border: 2px solid black;
+    /* margin: 0px 20px; */
+    margin-right: 10px;
+    border-radius: 24px;
+}
+
+.search b{
+    margin: 0px 20px;
+}
+.divsubnav i{
+    transform: rotate(270deg);
+    margin: 0px 20px;
+    font-size: 20px;
+}
+
+.divsubnav div input{
+   width: 100%;
+   height: 100%;
+   border: none;
+   border-left: 2px solid black;
+   border-right: 2px solid black;
+}
+
+.subnav button{
+    margin: 0px 20px;
+    width: 150px;
+}

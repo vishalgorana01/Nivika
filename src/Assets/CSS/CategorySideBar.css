@@ -1,0 +1,24 @@
+@import "rsuite/dist/rsuite.css";
+
+.sidebar{
+    position: relative;
+    /* background-color: black; */
+}
+
+.nav{
+    position: fixed !important ;
+    width: 190px !important;
+    top: 0px;
+}
+
+.navItem{
+    background-color: rgb(230,210,200) !important;
+}
+
+
+@media (min-width: 1560px) {
+    .sidebar{
+        position: absolute  !important;
+        left: calc(50% - 770px) !important;
+    }
+}
