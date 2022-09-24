@@ -55,3 +55,13 @@
     border-radius: 4px;
     height: 40px;
 }
+
+@media (max-width: 550px) {
+    .container form{
+        width: 301px !important;
+    }
+
+    .container div{
+        width: 301px !important;
+    }
+}

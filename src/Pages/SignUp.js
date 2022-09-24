@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   MDBContainer,
@@ -255,10 +256,42 @@ export default  function SignUp() {
   }
 
 
-  const [justifyActive, setJustifyActive] = useState('tab1');;
+  // upper_sign_in.style.color = 'wheat';
+  // upper_sign_in.style.backgroundColor = '2px solid wheat';
 
+  
+  let upper_sign_in = useRef(null);
+  // console.log(upper_sign_in, " --> ",1);
+
+  
+  let upper_sign_up = useRef(null);
+  console.log(upper_sign_up)
+  
+  let check = true;
+  
+  const [justifyActive, setJustifyActive] = useState('tab1');;
+  
   const handleJustifyClick = (value) => {
+    
+    // upper_sign_up.current.style.color = "yellow";
+    if(upper_sign_in.current.style.backgroundColor != 'wheat' && value == 'tab1'){
+      upper_sign_in.current.style.backgroundColor = 'wheat';
+      upper_sign_in.current.style.color = '#982339';
+
+      upper_sign_up.current.style.backgroundColor = '#982339';
+      upper_sign_up.current.style.color = 'wheat';
+    }
+
+    if(upper_sign_up.current.style.backgroundColor != 'wheat' && value == 'tab2'){
+      upper_sign_up.current.style.backgroundColor = 'wheat';
+      upper_sign_up.current.style.color = '#982339';
+
+      upper_sign_in.current.style.backgroundColor = '#982339';
+      upper_sign_in.current.style.color = 'wheat';
+    }
+ 
     if (value === justifyActive) {
+
       return;
     }
 
@@ -267,11 +300,14 @@ export default  function SignUp() {
     setJustifyActive(value);
   };
 
+  let up = useRef(null);
+
   function handleSignUp() {
 
     email = document.querySelector('#email').value;
-    // console.log(email);
-    // localStorage.setItem(7, email);
+    up.current.style.backgroundColor = 'wheat';
+    up.current.style.color = '#982339';
+    up.current.style.border = 'none';
     
     let password = document.querySelector("#password").value;
     const auth = getAuth();
@@ -293,9 +329,14 @@ export default  function SignUp() {
   }
 
 
-
+ let login = useRef(null);
   async function handleLogin(e){
+
     e.preventDefault();
+    login.current.style.backgroundColor = 'wheat';
+    login.current.style.color = '#982339';
+    login.current.style.border = 'none';
+
     let email = document.querySelector('#login_email').value;
     console.log(email);
 
@@ -310,6 +351,7 @@ export default  function SignUp() {
         const user = userCredential.user;
         UserData(email);
         alert("login successful");
+        document.location.href = 'home';
         // ...
       })
       .catch((error) => {
@@ -321,18 +363,19 @@ export default  function SignUp() {
   }
 
   return (
+    
     <>
-    <div className={styles.section}>
+    <div className={styles.section} style={{backgroundColor: 'antiquewhite'}}>
       <MDBContainer className={`${styles.form} form p-3 my-5 d-flex flex-column w-50`} style={{ maxWidth: '400px !important' }}>
 
         <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
           <MDBTabsItem>
-            <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
-              SignIn
+            <MDBTabsLink onClick={() => handleJustifyClick('tab1')} className={styles.tab1_button} ref={upper_sign_in} active={justifyActive === 'tab1'} style={{backgroundColor: 'wheat', color:'#982339'}}>
+              <span>SignIn</span>
             </MDBTabsLink>
           </MDBTabsItem>
           <MDBTabsItem>
-            <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
+            <MDBTabsLink onClick={() => handleJustifyClick('tab2')} ref={upper_sign_up} active={justifyActive === 'tab2'} style={{color:'wheat'}}>
               SignUp
             </MDBTabsLink>
           </MDBTabsItem>
@@ -347,19 +390,19 @@ export default  function SignUp() {
 
               <div className='d-flex justify-content-between mx-auto' style={{ width: '40%' }}>
                 <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                  <MDBIcon onClick={facebook_login} fab icon='facebook-f' size="sm" />
+                  <MDBIcon onClick={facebook_login} fab icon='facebook-f' size="sm" style={{color: 'wheat', fontSize: '16px'}} />
                 </MDBBtn>
 
                 <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                  <MDBIcon onClick={twitter_login} fab icon='twitter' size="sm" />
+                  <MDBIcon onClick={twitter_login} fab icon='twitter' size="sm" style={{color: 'wheat', fontSize: '16px'}} />
                 </MDBBtn>
 
                 <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                  <MDBIcon onClick={google_login} fab icon='google' size="sm" />
+                  <MDBIcon onClick={google_login} fab icon='google' size="sm" style={{color: 'wheat', fontSize: '16px'}} />
                 </MDBBtn>
 
                 <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='github' size="sm" />
+                  <MDBIcon fab icon='github' size="sm" style={{color: 'wheat', fontSize: '16px'}} />
                 </MDBBtn>
               </div>
 
@@ -371,11 +414,10 @@ export default  function SignUp() {
 
             <div className="d-flex justify-content-between mx-4 mb-4">
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-              <a href="!#">Forgot password?</a>
+              <a href="!#" style={{color: 'wheat'}}>Forgot password?</a>
             </div>
 
-            <a href='/SignUp'><MDBBtn onClick={handleLogin} className="mb-4 w-100">Sign in</MDBBtn></a>
-            {/* <p className="text-center">Not a member? <a href="#!">Register</a></p> */}
+            <MDBBtn onClick={handleLogin} ref={login} className={`${styles.signin} mb-4 w-100`}>Sign in</MDBBtn>
 
           </MDBTabsPane>
 
@@ -386,19 +428,19 @@ export default  function SignUp() {
 
               <div className='d-flex justify-content-between mx-auto' style={{ width: '40%' }}>
                 <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='facebook-f' size="sm" />
+                  <MDBIcon fab icon='facebook-f' size="sm" style={{color: 'wheat', fontSize: '16px'}} />
                 </MDBBtn>
 
                 <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='twitter' size="sm" />
+                  <MDBIcon fab icon='twitter' size="sm" style={{color: 'wheat', fontSize: '16px'}} />
                 </MDBBtn>
 
                 <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='google' size="sm" />
+                  <MDBIcon fab icon='google' size="sm" style={{color: 'wheat', fontSize: '16px'}} />
                 </MDBBtn>
 
                 <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='github' size="sm" />
+                  <MDBIcon fab icon='github' size="sm" style={{color: 'wheat', fontSize: '16px'}} />
                 </MDBBtn>
               </div>
 
@@ -415,7 +457,7 @@ export default  function SignUp() {
               <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
             </div>
 
-            <MDBBtn onClick={handleSignUp} className="mb-4 w-100">Sign up</MDBBtn>
+            <MDBBtn onClick={handleSignUp} ref={up} className={`${styles.signup} mb-4 w-100`}>Sign up</MDBBtn>
 
           </MDBTabsPane>
 

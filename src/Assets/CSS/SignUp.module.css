@@ -8,7 +8,8 @@
 
 .form{
     width: 500px !important;
-    background-color: rgb(120, 153, 153);
+    color: wheat;
+    background-color: rgb(152 35 57);
 }
 
 @media (max-width: 500px) {
@@ -21,3 +22,30 @@
     display: none !important;
     /* visibility: hidden; */
 }
+
+.signin{
+    background-color: rgb(152 35 57);
+    border: 2px solid wheat;
+    color: wheat;
+}
+.signin:hover{
+    background-color: wheat !important;
+    border: 2px solid #982339 !important;
+    color: #982339 !important;
+}
+
+.signup{
+    background-color: #982339;
+    color: wheat;
+    border: 2px solid wheat;
+}
+.signup:hover{
+    background-color: wheat !important;
+    color: #982339 !important;
+    border: 2px solid #982339 !important;
+}
+/* 
+.tab1_button{
+    background-color: wheat !important;
+    color: #982339 !important;
+} */

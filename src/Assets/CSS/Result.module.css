@@ -1,0 +1,20 @@
+.details{
+    border: none;
+    background-color: #982339;
+    color: wheat;
+}
+.details:hover{
+    background-color: #982339 !important;
+    font-size: 15px !important;
+    color: wheat !important;
+}
+
+.wishlist{
+    border: 2px solid #982339 !important;
+    color: #982339 !important;
+}
+
+.wishlist:hover{
+    background-color: white !important;
+    font-size: 15px !important;
+}

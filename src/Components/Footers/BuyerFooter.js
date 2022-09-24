@@ -1,12 +1,12 @@
 import React from 'react'
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
-import image from '../../Assets/Images/nivika logo new wb.png'
+import image from '../../Assets/Images/nivika logo new white.png'
 import style from '../../Assets/CSS/BuyerFooter.module.css'
 
 export default function BuyerFooter() {
     return (
-        <MDBFooter className={`${style.main_footer} , text-center text-lg-start `} style={{color: 'white', backgroundColor: '#b35e6a'}}>
+        <MDBFooter className={`${style.main_footer} , text-center text-lg-start `} style={{color: 'white', backgroundColor: 'rgb(152 35 57)'}}>
             <section className={` d-flex justify-content-center justify-content-lg-between p-4 border-bottom ${style.topFooter}`} style={{maxWidth: '1300px', margin: '0px auto'}}>
                 <div className='me-5 d-none d-lg-block'>
                     <span>Get connected with us on social networks:</span>

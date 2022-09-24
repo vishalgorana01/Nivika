@@ -4,6 +4,7 @@ import image1 from '../Assets/Images/stylish-details-interior-decor-against-back
 
 import BuyerNavbar from '../Components/Navbars/BuyerNavbar';
 import BuyerFooter from '../Components/Footers/BuyerFooter';
+import styles from '../Assets/CSS/Result.module.css';
 
 export default function Result() {
   return (
@@ -65,8 +66,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -131,8 +132,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -197,8 +198,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -263,8 +264,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -329,8 +330,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -395,8 +396,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -461,8 +462,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -527,8 +528,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -593,8 +594,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -659,8 +660,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -726,8 +727,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>
@@ -793,8 +794,8 @@ export default function Result() {
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="d-flex flex-column mt-4">
-                  <button className="btn btn-primary btn-sm" type="button">Details</button>
-                  <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+                  <button className={` ${styles.details} btn btn-primary btn-sm`} type="button">Details</button>
+                  <button className={`${styles.wishlist} btn btn-outline-primary btn-sm mt-2`} type="button">
                     Add to wishlist
                   </button>
                 </div>

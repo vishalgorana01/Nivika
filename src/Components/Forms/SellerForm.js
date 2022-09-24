@@ -44,7 +44,7 @@ export default function SellerForm() {
             {/* <label htmlFor=""> : &nbsp; <input type="text" placeholder='yogi nath'/></label> */}
             <label htmlFor="">address : &nbsp; <input type="text" placeholder='l-45, aadarsh nagar, Bhopal'/></label>
         </form>
-        <Link to={'/Sform'}><div><button type='button' onClick={submitbtn} className={styles.btn}>Save</button></div></Link>
+        <Link to={'/Sprofile'}><div><button type='button' onClick={submitbtn} className={styles.btn}>Save</button></div></Link>
     </div>
   )
 }

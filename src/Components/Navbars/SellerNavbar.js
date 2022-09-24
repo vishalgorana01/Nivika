@@ -1,11 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
+import logo from '../../Assets/Images/nivika logo new white.png';
+// import Button from 'react-bootstrap/Button';
+// import CategorySideBar from '../SideBars/CategorySideBar';
+
+import styles from '../../Assets/CSS/BuyerNavbar.module.css';
 
 export default function SellerNavbar() {
     return (
-        <>
+           <>
             <section id={styles.section1}>
                 <nav className={`navbar navbar-expand-lg navbar-light bg-light ${styles.nav}`}>
-                    <div className={`container-fluid ${styles.container}`} style={{ paddingRight: '30px' }}>
+                    <div className={`container-fluid ${styles.container}`} style={{paddingRight: '30px'}}>
                         <button
                             className="navbar-toggler"
                             type="button"
@@ -29,29 +36,27 @@ export default function SellerNavbar() {
                             </a>
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/">Home</a>
+                                    <a className="nav-link" href="/Sprofile" style={{color: 'white'}}>Home</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/">About us</a>
+                                    <a className="nav-link" href="/home" style={{color: 'white'}}>Your Items</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/">Contact us</a>
+                                    <a className="nav-link" href="/Sprofile" style={{color: 'white'}}>Services</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/">Services</a>
+                                    <a className="nav-link" href="/Sprofile" style={{color: 'white'}}>Contact us</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/">Today's Deal</a>
+                                    <a className="nav-link" href="/Sprofile" style={{color: 'white'}}>Help</a>
                                 </li>
                             </ul>
                         </div>
 
                         <div className="d-flex align-items-center">
-                            <a className="text-reset me-3" href="/">
-                                <i className="fas fa-shopping-cart"></i>
-                            </a>
+                            <Link to={`/`}><button className={styles.logout}>logout</button></Link>
 
-                            <div className="dropdown">
+                            <div className="dropdown" style={{color: 'white'}}>
                                 <a
                                     className="text-reset me-3 dropdown-toggle hidden-arrow"
                                     href="/"
@@ -79,7 +84,7 @@ export default function SellerNavbar() {
                                 </ul>
                             </div>
                             <div className="dropdown">
-                                <a
+                               <Link to={`/Sprofile`}> <a
                                     className="dropdown-toggle d-flex align-items-center hidden-arrow"
                                     href="/"
                                     id="navbarDropdownMenuAvatar"
@@ -94,8 +99,8 @@ export default function SellerNavbar() {
                                         alt="Black and White Portrait of a Man"
                                         loading="lazy"
                                     />
-                                </a>
-                                <ul
+                                </a></Link>
+                                {/* <ul
                                     className="dropdown-menu dropdown-menu-end"
                                     aria-labelledby="navbarDropdownMenuAvatar"
                                 >
@@ -108,7 +113,7 @@ export default function SellerNavbar() {
                                     <li>
                                         <a className="dropdown-item" href="/">Logout</a>
                                     </li>
-                                </ul>
+                                </ul> */}
                             </div>
                         </div>
                     </div>
@@ -117,7 +122,7 @@ export default function SellerNavbar() {
                 <nav className={styles.subnav}>
                     <div className={styles.divsubnav}>
                         <div>
-                            <i class="fa-sharp fa-solid fa-caret-down"></i>
+                        <i class="fa-sharp fa-solid fa-caret-down"></i>
                         </div>
                         <div className={styles.search}>
                             <b>All</b>

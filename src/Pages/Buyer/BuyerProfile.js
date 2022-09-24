@@ -64,7 +64,7 @@ export default function BuyerProfile() {
         <>
             <BuyerNavbar></BuyerNavbar>
             <div>
-                <section style={{ backgroundColor: '#eee' }}>
+                <section style={{ backgroundColor: `rgb(216, 212, 204)` }}>
                     <div className="container py-5">
                         <div className="row">
                             <div className="col">
