@@ -1,9 +1,77 @@
 import React from 'react'
-import '../../Assets/CSS/Cart.module.css';
+import styles from '../../Assets/CSS/Cart.module.css';
 import BuyerFooter from '../../Components/Footers/BuyerFooter';
 import BuyerNavbar from '../../Components/Navbars/BuyerNavbar';
 
+// import { db } from '../../Components/Firebase/FirebaseConfiguration.js';
+// import { collection, query, where, getDocs } from "firebase/firestore";
+
+// let cart_item = [];
+//  async function refresh() {
+//     console.log("hi");
+//     const q = query(collection(db, "users"), where("email", "==", JSON.parse(localStorage.getItem(1))[2]));
+
+//     const querySnapshot = await getDocs(q);
+//     querySnapshot.forEach((doc) => {
+//         // doc.data() is never undefined for query doc snapshots
+//         console.log(doc.id, " => ", doc.data());
+//         cart_item = (doc.data()).cart;
+//     });
+
+//     cart_item.forEach((ele)=>{
+//         console.log(ele.img," ",ele.name," ",ele.price);
+//     })
+// }
+
+let cart_item = JSON.parse(localStorage.getItem(1))[1];
+
+
+// let v = cart_item.map(ele => {
+//     console.log(ele);
+// })
+
+let count = 0;
+let cart_items = cart_item.map(ele=>{
+    console.log(ele.img," ",ele.name," ",ele.price);
+    return(
+        <>
+        <div>
+        <div className="row mb-4 d-flex justify-content-between align-items-center">
+        <div className="col-md-2 col-lg-2 col-xl-2">
+            <img src={ele.img} className="img-fluid rounded-3" alt="Cotton T-shirt" />
+        </div>
+        <div className="col-md-3 col-lg-3 col-xl-3">
+            <h6 className="text-muted">Shirt</h6>
+            <h6 className="text-black mb-0">{ele.name}</h6>
+        </div>
+        <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
+            <button className="btn btn-link px-2" >
+                <i className="fas fa-minus" />
+            </button>
+            <input id="form1" min={0} name="quantity" defaultValue={1} type="number" className="form-control form-control-sm" />
+            <button className="btn btn-link px-2" >
+                <i className="fas fa-plus" />
+            </button>
+        </div>
+        <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+            <h6 className="mb-0">Rs. {ele.price}</h6>
+        </div>
+        <div className="col-md-1 col-lg-1 col-xl-1 text-end">
+            <a   className="text-muted"><i className="fas fa-times" /></a>
+        </div>
+    </div>
+    </div>
+    <hr/>
+    </>
+    )
+});
+
+console.log(cart_items);
+
 export default function Cart() {
+    console.log(cart_item);
+
+
     return (
         <>
             <BuyerNavbar></BuyerNavbar>
@@ -22,30 +90,9 @@ export default function Cart() {
                                                         <h6 className="mb-0 text-muted">3 items</h6>
                                                     </div>
                                                     <hr className="my-4" />
-                                                    <div className="row mb-4 d-flex justify-content-between align-items-center">
-                                                        <div className="col-md-2 col-lg-2 col-xl-2">
-                                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp" className="img-fluid rounded-3" alt="Cotton T-shirt" />
-                                                        </div>
-                                                        <div className="col-md-3 col-lg-3 col-xl-3">
-                                                            <h6 className="text-muted">Shirt</h6>
-                                                            <h6 className="text-black mb-0">Cotton T-shirt</h6>
-                                                        </div>
-                                                        <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                            <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                                                <i className="fas fa-minus" />
-                                                            </button>
-                                                            <input id="form1" min={0} name="quantity" defaultValue={1} type="number" className="form-control form-control-sm" />
-                                                            <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                                                <i className="fas fa-plus" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                            <h6 className="mb-0">€ 44.00</h6>
-                                                        </div>
-                                                        <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                            <a href="#!" className="text-muted"><i className="fas fa-times" /></a>
-                                                        </div>
-                                                    </div>
+
+                                                   {cart_items}
+
                                                     <hr className="my-4" />
                                                     <div className="row mb-4 d-flex justify-content-between align-items-center">
                                                         <div className="col-md-2 col-lg-2 col-xl-2">
@@ -56,11 +103,11 @@ export default function Cart() {
                                                             <h6 className="text-black mb-0">Cotton T-shirt</h6>
                                                         </div>
                                                         <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                            <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                            <button className="btn btn-link px-2">
                                                                 <i className="fas fa-minus" />
                                                             </button>
                                                             <input id="form1" min={0} name="quantity" defaultValue={1} type="number" className="form-control form-control-sm" />
-                                                            <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                            <button className="btn btn-link px-2">
                                                                 <i className="fas fa-plus" />
                                                             </button>
                                                         </div>
@@ -68,7 +115,7 @@ export default function Cart() {
                                                             <h6 className="mb-0">€ 44.00</h6>
                                                         </div>
                                                         <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                            <a href="#!" className="text-muted"><i className="fas fa-times" /></a>
+                                                            <a   className="text-muted"><i className="fas fa-times" /></a>
                                                         </div>
                                                     </div>
                                                     <hr className="my-4" />
@@ -81,11 +128,11 @@ export default function Cart() {
                                                             <h6 className="text-black mb-0">Cotton T-shirt</h6>
                                                         </div>
                                                         <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                            <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                            <button className="btn btn-link px-2" >
                                                                 <i className="fas fa-minus" />
                                                             </button>
                                                             <input id="form1" min={0} name="quantity" defaultValue={1} type="number" className="form-control form-control-sm" />
-                                                            <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                            <button className="btn btn-link px-2" >
                                                                 <i className="fas fa-plus" />
                                                             </button>
                                                         </div>
@@ -93,12 +140,12 @@ export default function Cart() {
                                                             <h6 className="mb-0">€ 44.00</h6>
                                                         </div>
                                                         <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                            <a href="#!" className="text-muted"><i className="fas fa-times" /></a>
+                                                            <a   className="text-muted"><i className="fas fa-times" /></a>
                                                         </div>
                                                     </div>
                                                     <hr className="my-4" />
                                                     <div className="pt-5">
-                                                        <h6 className="mb-0"><a href="#!" className="text-body"><i className="fas fa-long-arrow-alt-left me-2" />Back to shop</a></h6>
+                                                        <h6 className="mb-0"><a   className="text-body"><i className="fas fa-long-arrow-alt-left me-2" />Back to shop</a></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -131,7 +178,7 @@ export default function Cart() {
                                                         <h5 className="text-uppercase">Total price</h5>
                                                         <h5>€ 137.00</h5>
                                                     </div>
-                                                    <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Register</button>
+                                                    <button  className={styles.btn} data-mdb-ripple-color="dark" >Order Now</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -14,6 +14,7 @@ import BuyerProfile from './Pages/Buyer/BuyerProfile';
 import SellerProfile from './Pages/Seller/SellerProfile';
 import SellerForm from './Components/Forms/SellerForm';
 import UsersData from './Components/UsersData/UsersData';
+import BuyerForm from './Components/Forms/BuyerForm';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path='Sprofile' element={<SellerProfile></SellerProfile>}></Route>
           <Route path='Sform' element={<SellerForm></SellerForm>}></Route>
           <Route path='UserData' element={<UsersData></UsersData>}></Route>
+          <Route path='Bform' element={<BuyerForm></BuyerForm>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

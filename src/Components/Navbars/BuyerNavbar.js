@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
+import { app, db, doc } from '../Firebase/FirebaseConfiguration.js';
+import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+
+
 // @import "rsuite/dist/rsuite.css";
 
 import logo from '../../Assets/Images/nivika logo new white.png';
@@ -8,8 +12,78 @@ import logo from '../../Assets/Images/nivika logo new white.png';
 // import CategorySideBar from '../SideBars/CategorySideBar';
 
 import styles from '../../Assets/CSS/BuyerNavbar.module.css';
+import { async } from '@firebase/util';
 
 const BuyerNavbar = (props) => {
+   async function gets_profile_data(){
+
+       let vishal = [];
+       
+       const q =  query(collection(db, "users"), where("email", "==", JSON.parse(localStorage.getItem(1))[2]));
+       localStorage.clear();
+          
+            let given_address, given_cart, given_email, given_fullName, given_phoneNos, given_type, given_uid, given_wishlist;
+            const querySnapshot = await getDocs(q);
+            console.log(querySnapshot);
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              console.log(doc.id, " => ", doc.data());
+              
+              given_address = (doc.data()).address;
+              if(given_address == ''){
+                given_address = 'L-45, Santanio, Otiono';
+              }
+              vishal.push(given_address);
+              console.log(given_address);
+              
+              given_cart = (doc.data()).cart;
+              vishal.push(given_cart);
+              console.log(given_cart);
+        
+              given_email = (doc.data()).email;
+              if(given_email == ''){
+                given_email = 'example@gmail.com';
+              }
+              vishal.push(given_email);
+              console.log(given_email);
+          
+              given_phoneNos = (doc.data()).phoneNos;
+              if(given_phoneNos == ""){
+                given_phoneNos = "987-456-3494";
+              }
+              vishal.push(given_phoneNos);
+              console.log(given_phoneNos);
+          
+              given_fullName = (doc.data()).fullName;
+              if(given_fullName == ""){
+                given_fullName = "name surname";
+              }
+              vishal.push(given_fullName);
+              console.log(given_fullName);
+          
+              given_type = (doc.data()).type;
+              vishal.push(given_type);
+              console.log(given_type);
+          
+              given_uid = (doc.id);
+              vishal.push(given_uid);
+              console.log(given_uid);
+          
+              given_wishlist = (doc.data()).wishlist;
+              vishal.push(given_wishlist);
+              console.log(given_wishlist);
+          
+            //   Customer = new UserModel(given_address, given_cart, given_email, given_fullName, given_phoneNos, given_type, given_uid, given_wishlist);
+            //   console.log(Customer);
+              console.log("array", vishal);
+              localStorage.clear();
+              localStorage.setItem(1, JSON.stringify(vishal));
+
+              window.location.reload();
+          
+          });
+
+    }
     return (
         <>
             <section id={styles.section1}>
@@ -64,7 +138,7 @@ const BuyerNavbar = (props) => {
                                 <Link to={'/'}><button className={styles.logout}>logout</button></Link>
                             </div>
                             <div className="dropdown">
-                               <Link to={`/Bprofile`}> <a
+                               <Link to={`/Bprofile`} onClick={gets_profile_data}> <a
                                     className="dropdown-toggle d-flex align-items-center hidden-arrow"
                                     href="/"
                                     id="navbarDropdownMenuAvatar"

@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+    width: 200px;
+    border-bottom: 2px solid #982239;
+}
+
+.edit input{
+    display: flex;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+}
+
+.edit i{
+    color: #982239 !important;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* border: 1px solid black; */
+    width: 97%;
+    padding: 0px;
+    margin: 20px auto;
+}
+
+.btn button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    background: #982239;
+    color: wheat;
+    border: none;
+    font-size: 18px;
+}

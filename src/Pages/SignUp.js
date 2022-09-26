@@ -156,6 +156,7 @@ async function upload_file(email) {
     wishlist: []
   });
   console.log("Document written with ID: ", docRef.id);
+  alert("file uploaded");
 };
 
 // async function UserData(email){
@@ -198,14 +199,16 @@ async function upload_file(email) {
 // });
 // }
 
-let vishal = [];
 
 
 export default  function SignUp() {
 
   async function UserData(email){
-    console.log(email);
-    console.log(typeof(email))
+    // console.log(email);
+    // console.log(typeof(email))
+    localStorage.clear();
+let vishal = [];
+
     const q =  query(collection(db, "users"), where("email", "==", email));
   
     let given_address, given_cart, given_email, given_fullName, given_phoneNos, given_type, given_uid, given_wishlist;
@@ -213,24 +216,37 @@ export default  function SignUp() {
     console.log(querySnapshot);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      // console.log(doc.id, " => ", doc.data());
+      console.log(doc.id, " => ", doc.data());
+      
       given_address = (doc.data()).address;
+      if(given_address == ''){
+        given_address = 'L-45, Santanio, Otiono';
+      }
       vishal.push(given_address);
       console.log(given_address);
-  
+      
       given_cart = (doc.data()).cart;
       vishal.push(given_cart);
       console.log(given_cart);
-  
+
       given_email = (doc.data()).email;
+      if(given_email == ''){
+        given_email = 'example@gmail.com';
+      }
       vishal.push(given_email);
       console.log(given_email);
   
       given_phoneNos = (doc.data()).phoneNos;
+      if(given_phoneNos == ""){
+        given_phoneNos = "987-456-3494";
+      }
       vishal.push(given_phoneNos);
       console.log(given_phoneNos);
   
       given_fullName = (doc.data()).fullName;
+      if(given_fullName == ""){
+        given_fullName = "name surname";
+      }
       vishal.push(given_fullName);
       console.log(given_fullName);
   
@@ -238,7 +254,7 @@ export default  function SignUp() {
       vishal.push(given_type);
       console.log(given_type);
   
-      given_uid = (doc.data()).uid;
+      given_uid = (doc.id);
       vishal.push(given_uid);
       console.log(given_uid);
   
@@ -302,6 +318,7 @@ export default  function SignUp() {
 
   let up = useRef(null);
 
+  // Sign Up
   function handleSignUp() {
 
     email = document.querySelector('#email').value;
@@ -328,7 +345,7 @@ export default  function SignUp() {
 
   }
 
-
+// Login 
  let login = useRef(null);
   async function handleLogin(e){
 
@@ -351,7 +368,7 @@ export default  function SignUp() {
         const user = userCredential.user;
         UserData(email);
         alert("login successful");
-        document.location.href = 'home';
+        // document.location.href = 'home';
         // ...
       })
       .catch((error) => {
@@ -417,7 +434,7 @@ export default  function SignUp() {
               <a href="!#" style={{color: 'wheat'}}>Forgot password?</a>
             </div>
 
-            <MDBBtn onClick={handleLogin} ref={login} className={`${styles.signin} mb-4 w-100`}>Sign in</MDBBtn>
+            <MDBBtn onClick={handleLogin} ref={login} className={`${styles.signin} mb-4 w-100`}><Link to={'/home'}>sign in</Link></MDBBtn>
 
           </MDBTabsPane>
 
