@@ -23,7 +23,14 @@ import BuyerNavbar from '../../Components/Navbars/BuyerNavbar';
 //     })
 // }
 
-let cart_item = JSON.parse(localStorage.getItem(1))[1];
+
+let cart_item = [];
+if((localStorage.getItem(1)) == null){
+    cart_item = [1,2,3];
+}
+else{
+    cart_item = JSON.parse(localStorage.getItem(1))[1];
+}
 
 
 // let v = cart_item.map(ele => {
@@ -33,6 +40,7 @@ let cart_item = JSON.parse(localStorage.getItem(1))[1];
 let count = 0;
 let cart_items = cart_item.map(ele=>{
     console.log(ele.img," ",ele.name," ",ele.price);
+
     return(
         <>
         <div>
